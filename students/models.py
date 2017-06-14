@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Student(models.Model):
     """Student Model"""
+    
     class Meta(object):
         verbose_name = u'Студент'
         verbose_name_plural = u'Студенты'
