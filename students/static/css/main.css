@@ -1,0 +1,45 @@
+/*Global Styles*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+
+/*Comment for css*/
+
+.alert {
+    /*we will add the distance from the top*/
+    margin-top: 10px;
+}
+
+
+/*find the footer element */
+
+#footer {
+    /*добавляем верхнюю линию между элементами: ширину линии, тип линии, цвет*/
+    border-top: 1px solid #dddddd;
+    /*задаем внутринее расстояние елемента к верхнему краю*/
+    padding-top: 10px;
+}
+
+
+/*Groups Selector*/
+
+#group-selector {
+    margin-top: 30px;
+}
+
+#group-selector select {
+    margin: 0;
+    width: 85%;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    height: 30 px;
+    line-height: 30px;
+    color: #555555;
+}

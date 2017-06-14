@@ -1,0 +1,43 @@
+{% extends "students/base.html" %} {% load static from staticfiles %} {% block meta_title %}Студенти{% endblock meta_title %} {% block title %}Список групп{% endblock title %} {% block content %}
+<a class="btn btn-primary" href="{% url 'groups_add' %}">Добавить группу</a>
+
+<!-- Start Student Listing -->
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Староста</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for groups in students_groups %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'groups_edit' groups.id %}">{{groups.groups_name}}</a></td>
+            <td><a href="{% url 'groups_edit' groups.id %}">{{groups.ST_name}}</a></td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        Действие<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{% url 'groups_edit' groups.id %}">Редактировать</a></li>
+                        <li><a href="/journal/{{ groups.id }}">Посещение</a></li>
+                        <li><a href="{% url 'groups_delete' groups.id %}">Удаление</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<nav>
+    <ul class="pagination">
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">Далее</a></li>
+    </ul>
+</nav>
+{% endblock content %}

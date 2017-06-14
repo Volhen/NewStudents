@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <title>Сервис учета студентов</title>
+    <meta name="description" value="Система учета студентов учебного заведения" />
+
+    <!--Include Style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <!-- Start Container -->
+    <div class="container">
+        <div class="row" id="content-columns">
+            <div class="col-xs-12" id="content-colum">
+
+                <!-- Status Message -->
+                <h2>Форма редактирования студентов</h2>
+
+                <!-- Add Student-->
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Фамилия*</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="Введите фамилию">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Имя*</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="Введите имя">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Отчество</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="Введите отчество">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">№ Билета*</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="Введите № Билета">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Дата рождения</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="Введите дату рождения">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="exampleInputFile">Фото</label>
+                        <div class="col-sm-3">
+                            <input type="file" id="exampleInputFile">
+                        </div>
+                    </div>
+                    <div class="form-group" id="group-selector">
+                        <label class="col-sm-2 control-label">Группа*</label>
+                        <div class="col-sm-3">
+                            <select>
+                                <option value="">МтМ-21</option>
+                                <option value="">МтМ-22</option>
+                                <option value="">МтМ-23</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Дополнительные заметки</label>
+                        <div class="col-sm-3">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-3">
+                            <a class="btn btn-primary" href="./index.html">Сохранить</a>
+                            <a class="btn btn-default" href="./add_forms.html">Отменить</a>
+                        </div>
+                    </div>
+                </form>
+                <!-- End Students Listing -->
+            </div>
+        </div>
+        <!-- End Main Page Content -->
+
+        <!-- Start Footer -->
+        <div class="row" id="footer">
+            <div class="col-xs-12">
+                &copy; 2017 Сервис учета студентов
+            </div>
+        </div>
+        <!-- End Footer -->
+    </div>
+    <!-- End Container -->
+
+    <!-- Javascript Section -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

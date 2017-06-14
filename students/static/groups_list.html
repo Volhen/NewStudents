@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <title>Сервис учета студентов</title>
+    <meta name="description" value="Система учета студентов учебного заведения" />
+
+    <!--Include Style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <!-- Start Container -->
+    <div class="container">
+
+        <!-- Start  Head -->
+        <div class="row" id="head">
+
+            <!-- Logo -->
+            <div class="col-xs-8">
+                <h1>Сервис учета студентов</h1>
+            </div>
+
+            <!-- Group Selector -->
+            <div class="col-xs-4" id="group-selector">
+                <strong>Группа:</strong>
+                <select>
+                    <option value="">Все Студенты</option>
+                    <option value="">МтМ-21, Потребенко Виктор (№254)</option>
+                    <option value="">МтМ-22, Корост Андрей (№2133)</option>
+                </select>
+            </div>
+        </div>
+        <!-- End Header -->
+
+        <!-- Start SubHeader -->
+        <div class="row" id="sub-header">
+            <div class="col-xs-12">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation"><a href="./index.html">Студенты</a></li>
+                    <li role="presentation"><a href="./group_visit.html">Посещение</a></li>
+                    <li role="presentation" class="active"><a href="#">Группы</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- End SubHeader -->
+
+        <!-- Start Main page content -->
+        <div class="row" id="content-columns">
+            <div class="col-xs-12" id="content-colum">
+
+                <!-- Status Message -->
+                <h2>Группы</h2>
+
+                <!-- Add Student Button -->
+                <a class="btn btn-primary" href="#">Добавить группу</a>
+
+                <!-- Start Student Listing -->
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Название</th>
+                            <th>Староста</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>МтМ-21</td>
+                            <td>Ячменев Олег</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Действие<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Посещение</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Реагирование</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Удаление</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>МтМ-22</td>
+                            <td>Потребенко Виктор</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Действие<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Посещение</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Реагирование</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Удаление</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>МтМ-23</td>
+                            <td>Иванов Иван</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Действие<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Посещение</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Реагирование</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Удаление</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pagination">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">Далее</a></li>
+                    </ul>
+                </nav>
+                <!-- End Students Listing -->
+            </div>
+        </div>
+        <!-- End Main Page Content -->
+
+        <!-- Start Footer -->
+        <div class="row" id="footer">
+            <div class="col-xs-12">
+                &copy; 2017 Сервис учета студентов
+            </div>
+        </div>
+        <!-- End Footer -->
+    </div>
+    <!-- End Container -->
+
+    <!-- Javascript Section -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
