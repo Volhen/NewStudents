@@ -2,22 +2,35 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-# Views for Groups
+from ..models import Group
+
 
 def groups_list(request):
-    students_groups = (
-        {'id': 1,
-        'groups_name': u'МтМ-21',
-        'ST_name': u'Ячменев Олег'},
-        {'id': 2,
-        'groups_name': u'МтМ-22',
-        'ST_name': u'Иванов Иван'},
-        {'id': 3,
-        'groups_name': u'МтМ-23',
-        'ST_name': u'Потребенко Виктор'},
-    )
-    return render(request, 'students/groups_list.html', {'students_groups': students_groups})
+    groups = Group.objects.all()
+
+    # try to order groups list
+    order_by = request.GET.get('order_by', '')
+    if order_by in ('title',):
+        groups = groups.order_by(order_by)
+        if request.GET.get('reverse', '') == '1':
+            groups = groups.reverse()
+
+    # paginate groups
+    paginator = Paginator(groups, 3)
+    page = request.GET.get('page')
+    try:
+        groups = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        groups = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        groups = paginator.page(paginator.num_pages)
+
+    return render(request, 'students/groups_list.html',
+        {'groups': groups})
 
 def groups_add(request):
     return HttpResponse('<h1>Group Add Form</h1>')

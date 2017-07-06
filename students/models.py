@@ -48,18 +48,18 @@ class Student(models.Model):
 
 class Group(models.Model):
     """Group Model"""
-    
+
     class Meta(object):
-        verbose_name = u'Группа'
-        verbose_name_plural = u'Группы'
+        verbose_name = u"Группа"
+        verbose_name_plural = u"Группы"
 
     title = models.CharField(
         max_length=256,
         blank=False,
         verbose_name=u"Название")
 
-    loader = models.OneToOneField('Student',
-        verbose_name= u'Староста',
+    leader = models.OneToOneField('Student',
+        verbose_name=u"Староста",
         blank=True,
         null=True,
         on_delete=models.SET_NULL)
@@ -69,8 +69,9 @@ class Group(models.Model):
         verbose_name=u"Дополнительные заметки")
 
     def __unicode__(self):
-        if self.loader:
-            return u"%s (%s %s)" % (self.title,self.loader.first_name,self.loader.last_name)
+        if self.leader:
+            return u"%s (%s %s)" % (self.title, self.leader.first_name,
+                 self.leader.last_name)
         else:
             return u"%s" % (self.title,)
 
