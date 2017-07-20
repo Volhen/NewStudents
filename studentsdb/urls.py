@@ -19,6 +19,9 @@ urlpatterns = patterns('',
     # Journal urls
     url(r'^journal/$', 'students.views.journal.journal_list', name='journal'),
 
+    # Exam urls
+    url(r'^exam/$', 'students.views.exam.exam_list', name='exam'),
+
 )
 if DEBUG:
     # serve files from media folder
