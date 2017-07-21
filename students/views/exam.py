@@ -7,4 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from ..models import Exam
 
 def exam_list(request):
+    
+    exam = Exam.objects.all()
+
     return render(request,'students/exam_list.html',{'exam':exam})
