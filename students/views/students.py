@@ -90,18 +90,20 @@ def students_add(request):
                     data['student_group'] = groups[0]
 
 
-            photo = request.FILES.get('photo')
-            MAX_SIZE = 2097152 #2 mb in b
-            photo_name = photo.name
-            format_photo = photo_name.strip('.')[-3:]
+            #проверка по фото!!!
+            if request.FILES.get('photo'):
+                photo = request.FILES.get('photo')
+                MAX_SIZE = 2097152 #2 mb in b
+                photo_name = photo.name
+                format_photo = photo_name[-3:]
 
-            if format_photo in ('peg','jpg','png','gif'):
-                if photo.size > MAX_SIZE:
-                   errors['photo'] = u"Розмер фото очень большой"
+                if format_photo in ('peg','jpg','png','gif'):
+                    if photo.size > MAX_SIZE:
+                        errors['photo'] = u"Розмер фото очень большой"
+                    else:
+                        data['photo'] = photo
                 else:
-                    data['photo'] = photo
-            else:
-                errors['photo'] = u"Формат файла не соответствует"
+                    errors['photo'] = u"Формат файла не соответствует"
                 
             # save student
             if not errors:

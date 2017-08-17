@@ -36,10 +36,19 @@ h6 {
 
 #group-selector select {
     margin: 0;
-    width: 85%;
+    width: 80%;
     background-color: #ffffff;
     border: 1px solid #cccccc;
     height: 30 px;
     line-height: 30px;
     color: #555555;
+}
+
+
+/* Form Styles */
+
+input,
+select,
+textarea {
+    max-width: 300px;
 }
