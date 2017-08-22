@@ -22,6 +22,9 @@ urlpatterns = patterns('',
     # Exam urls
     url(r'^exam/$', 'students.views.exam.exam_list', name='exam'),
 
+    #Contact admin Form
+    url(r'^contact-admin/$','students.views.contact_admin.contact_admin', name='contact_admin'),
+
 )
 if DEBUG:
     # serve files from media folder

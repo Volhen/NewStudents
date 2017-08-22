@@ -15,6 +15,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 PORTAL_URL = 'http://localhost:8000'
 
+# email settings
+ADMIN_EMAIL = 'zver2485@mail.ru'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'zver2485@mail.ru'
+EMAIL_HOST_PASSWORD = 'vhf995jy'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -39,6 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'students',
 )
 
@@ -56,6 +67,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'studentsdb.urls'
 
 WSGI_APPLICATION = 'studentsdb.wsgi.application'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
 # Database
