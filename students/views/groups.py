@@ -4,11 +4,12 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 from django.forms import ModelForm
 from django.views.generic import CreateView, UpdateView, DeleteView
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit,Layout
 from crispy_forms.bootstrap import FormActions
 
 from ..models import Group
@@ -43,11 +44,12 @@ def groups_list(request):
 class GroupForm(ModelForm):
     class Meta:
         model = Group
-    
     def __init__(self, *args, **kwargs):
         super(GroupForm,self).__init__(*args,**kwargs)
 
         self.helper = FormHelper(self)
+        self.helper.form_method = 'POST'
+        self.helper.form_class = 'form-horizontal'
         
         #add form or edit form
         if kwargs['instance'] is None:
@@ -61,11 +63,10 @@ class GroupForm(ModelForm):
         else:
             self.helper.form_action = reverse('groups_edit',
                 kwargs={'pk': kwargs['instance'].id})
-        self.helper.form_method = 'POST'
-        self.helper.form_class = 'form-horizontal'
 
         # set form field properties
         self.helper.help_text_inline = True
+        self.helper.html5_required = True
         self.helper.label_class = 'col-sm-2 control-label'
         self.helper.field_class = 'col-sm-10'
 
@@ -76,9 +77,11 @@ class GroupForm(ModelForm):
         else:
             submit = Submit('save_button', u'Сохранить',
                 css_class="btn btn-primary")
-        self.helper.layout[-1] = FormActions(
-            submit,
-            Submit('cancel_button', u'Отменить', css_class="btn btn-link"),
+        self.helper.layout = Layout(
+            'title',
+            'leader',
+            'notes',
+            FormActions(submit,Submit('cancel_button', u'Отменить', css_class="btn btn-link"))
         )
 
 class BaseGroupFormView(object):
@@ -108,3 +111,5 @@ class GroupUpdateView(BaseGroupFormView, UpdateView):
 class GroupDeleteView(BaseGroupFormView, DeleteView):
     model = Group
     template_name = 'students/groups_confirm_delete.html'
+    def get_success_url(self):
+        return u'%s?status_message=Группа успешно удалена!'%reverse('groups')

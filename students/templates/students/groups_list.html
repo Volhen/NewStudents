@@ -1,4 +1,5 @@
 {% extends "students/base.html" %} {% block meta_title %}Список Груп{% endblock meta_title %} {% block title %}Список Груп{% endblock title %} {% block content %}
+<a class="btn btn-primary" href="{% url 'groups_add' %}">Добавить группу</a>
 <!-- Start Groups Listing -->
 {% if groups %}
 <table class="table">
@@ -20,7 +21,7 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Действие
                     <span class="caret"></span>
-                  </button>
+                    </button>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{% url 'groups_edit' group.id %}">Редактировать</a></li>
                         <li><a href="{% url 'groups_delete' group.id %}">Удалить</a></li>
@@ -33,7 +34,7 @@
 </table>
 <!-- End Groups Listing -->
 {% else %}
-<p>Отсутствуют грцппы в базе</p>
+<p>Отсутствуют грппы в базе</p>
 {% endif %} {% if groups.has_other_pages %}
 <nav>
     <ul class="pagination">

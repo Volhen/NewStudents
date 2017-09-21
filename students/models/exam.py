@@ -23,11 +23,12 @@ class Exam(models.Model):
         max_length=256,
         blank=False,
         verbose_name=u'ФИО преподавателя')
-    
-    groups_name = models.CharField(
-        max_length=256,
+
+    groups_name = models.ForeignKey('Group',
+        verbose_name=u"Группа",
         blank=False,
-        verbose_name=u'Группа на экзамене')
-    
+        null=True,
+        on_delete=models.PROTECT)
+
     def __unicode__(self):
         return u"%s %s" % (self.object_name, self.professor_name)

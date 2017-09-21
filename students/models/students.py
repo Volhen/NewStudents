@@ -42,7 +42,7 @@ class Student(models.Model):
         verbose_name=u"Билет")
 
     student_group = models.ForeignKey('Group',
-        verbose_name=u"Група",
+        verbose_name=u"Группа",
         blank=False,
         null=True,
         on_delete=models.PROTECT)
