@@ -13,12 +13,17 @@ from crispy_forms.layout import Submit,Layout
 from crispy_forms.bootstrap import FormActions
 
 from ..models import Exam
+from ..util import paginate
 
 def exam_list(request):
     
     exam = Exam.objects.all()
 
-    return render(request,'students/exam_list.html',{'exam':exam})
+    # apply pagination, 3 exam per page
+    context = paginate(exam, 3, request, {},
+        var_name='exam')
+
+    return render(request,'students/exam_list.html',context)
 
 class ExamForm(ModelForm):
     class Meta:

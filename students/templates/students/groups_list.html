@@ -1,48 +1,59 @@
-{% extends "students/base.html" %} {% block meta_title %}Список Груп{% endblock meta_title %} {% block title %}Список Груп{% endblock title %} {% block content %}
-<a class="btn btn-primary" href="{% url 'groups_add' %}">Добавить группу</a>
+{% extends "students/base.html" %}
+
+{% block meta_title %}Список групп{% endblock meta_title %}
+
+{% block title %}Список групп{% endblock title %}
+
+
+{% block content %}
+<a href="{% url "groups_add" %}" class="btn btn-primary">Добавить группу</a>
+
 <!-- Start Groups Listing -->
 {% if groups %}
 <table class="table">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th><a href="{% url 'groups' %}?order_by=title{% if request.GET.order_by == 'title' and request.GET.reverse != '1' %}&amp;reverse=1{% endif %}">Название{% if request.GET.order_by == 'title' and request.GET.reverse != '1' %} &uarr;{% elif request.GET.order_by == 'title' and request.GET.reverse == '1' %} &darr;{% endif %}</a></th>
-            <th>Староста</th>
-            <th>Действия</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for group in groups %}
-        <tr>
-            <td>{{ forloop.counter }}</td>
-            <td><a href="{% url 'groups_edit' group.id %}">{{ group.title }}</td>
-              <td>{% if group.leader %}<a href="{% url "students_edit" group.leader.id %}">{{ group.leader.first_name }} {{ group.leader.last_name }}</a>{% else %}Отсутствует{% endif %}</td>
-            <td>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Действие
-                    <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{% url 'groups_edit' group.id %}">Редактировать</a></li>
-                        <li><a href="{% url 'groups_delete' group.id %}">Удалить</a></li>
-                    </ul>
-                </div>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><a href="{% url "groups" %}?order_by=title{% if request.GET.order_by == 'title' and request.GET.reverse != '1' %}&amp;reverse=1{% endif %}">Название{% if request.GET.order_by == 'title' and request.GET.reverse != '1' %} &uarr;{% elif request.GET.order_by == 'title' and request.GET.reverse == '1' %} &darr;{% endif %}</a></th>
+      <th>Староста</th>
+      <th>Действия</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for group in groups %}
+    <tr>
+      <td>
+        {% if is_paginated %}
+          {{ page_obj.start_index|add:forloop.counter0 }}
+        {% else %}
+          {{ forloop.counter }}
+        {% endif %}
+      </td>
+      <td><a href="{% url 'groups_edit' group.id %}">{{ group.title }}</td>
+      <td>{% if group.leader %}<a href="{% url 'students_edit' group.leader.id %}">{{ group.leader.first_name }} {{ group.leader.last_name }}</a>{% else %}Отсутствует{% endif %}</td>
+      <td>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle"
+                  data-toggle="dropdown">Действие
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{% url 'groups_edit' group.id %}">Редактировать</a></li>
+            <li><a href="{% url 'groups_delete' group.id %}">Удалить</a></li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>
 <!-- End Groups Listing -->
 {% else %}
-<p>Отсутствуют грппы в базе</p>
-{% endif %} {% if groups.has_other_pages %}
-<nav>
-    <ul class="pagination">
-        <li><a href="{% url 'groups' %}?page=1&amp;order_by={{ request.GET.order_by }}&amp;reverse={{ request.GET.reverse }}">&laquo;</a></li>
-        {% for p in groups.paginator.page_range %}
-        <li {% if groups.number == p %}class="active" {% endif %}><a href="{% url 'groups' %}?page={{ p }}&amp;order_by={{ request.GET.order_by }}&amp;reverse={{ request.GET.reverse }}">{{ p }}</a></li>
-        {% endfor %}
-        <li><a href="{% url 'groups' %}?page={{ groups.paginator.num_pages }}&amp;order_by={{ request.GET.order_by }}&amp;reverse={{ request.GET.reverse }}">&raquo;</a></li>
-    </ul>
-</nav>
-{% endif %} {% endblock content %}
+<p>Пока отсутствует группа в базе</p>
+{% endif %}
+
+{% with object_list=groups %}
+  {% include "students/pagination.html" %}
+{% endwith %}
+
+{% endblock content %}

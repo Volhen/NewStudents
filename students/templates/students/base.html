@@ -46,7 +46,7 @@
                 <ul class="nav nav-tabs" role="tablist">
                     <!--<h1>{{ PORTAL_URL }}{% static 'css/main.css' %}"></h1>-->
                     {% url 'groups' as groups_url %} {% url 'journal' as journal_url %} {% url 'exam' as exam_url %}{% url 'contact_admin' as contact_admin_url %}
-                    <li role="presentation" {% if request.path == '/' %} class="active" {% endif %}><a href="{% url 'home' %}">Студенти</a></li>
+                    <li role="presentation" {% if request.path == '/' %} class="active" {% endif %}><a href="{% url 'home' %}">Студенты</a></li>
                     <li role="presentation" {% if journal_url in request.path %} class="active" {% endif %}><a href="{% url 'journal' %}">Посещение</a></li>
                     <li role="presentation" {% if groups_url in request.path %} class="active" {% endif %}><a href="{% url 'groups' %}">Группы</a></li>
                     <li role="presentation" {% if exam_url in request.path %} class="active" {% endif %}><a href="{% url 'exam' %}">Экзамены</a></li>
@@ -84,9 +84,9 @@
 
     <!-- Javascript Inclusion -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
-    {% block extra_js %}{% endblock extra_js %}
+    <script src="{% static 'js/main.js' %}"></script>{% block extra_js %}{% endblock extra_js %}
 
 </body>
 
