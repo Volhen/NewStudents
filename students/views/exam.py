@@ -13,11 +13,17 @@ from crispy_forms.layout import Submit,Layout
 from crispy_forms.bootstrap import FormActions
 
 from ..models import Exam
-from ..util import paginate
+from ..util import paginate, get_current_group
 
 def exam_list(request):
-    
-    exam = Exam.objects.all()
+    # check if we need to show only one group of exam
+    current_group = get_current_group(request)
+
+    if current_group:
+        exam = Exam.objects.filter(groups_name=current_group)
+    else:
+    # otherwise show all students
+        exam = Exam.objects.all()
 
     # apply pagination, 3 exam per page
     context = paginate(exam, 3, request, {},

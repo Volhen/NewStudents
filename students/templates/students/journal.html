@@ -1,94 +1,90 @@
-{% extends "students/base.html" %}
+{% extends "students/base.html" %} 
 
-{% load static from staticfiles %}
+{% load static from staticfiles %} 
 
-{% block meta_title %}Учет посещения{% endblock meta_title %}
+{% block meta_title %}Учет посещения{% endblock meta_title %} 
 
-{% block title %}Учет посещения{% endblock title %}
+{% block title %}Учет посещения{% endblock title %} 
 
-{% block content %}
+{% block content %} 
+
+{% if errors %}
+
+<div class="alert alert-danger">
+    <strong>Возникла ошибка {{ errors }} !!!</strong>
+</div>
+
+{% endif %}
 
 {% if not students %}
 
 <div class="alert alert-warning">
     Пока нет не одного студента в базе. Пожалуйста,
-    <a href="{% url "students_add" %}">добавьте</a> первого.
+    <a href="{% url 'students_add' %}">добавьте</a> первого.
 </div>
 
 {% else %}
 
 <div class="alert alert-warning">
-    Изменения в журнале сохраняются автоматическ, при каждом кликев клеткетаблицы
-    <span id="ajax-progress-indicator">Её сохранения...</span>
+    Изменения в журнале сохраняются автоматически, при каждом клике в клетке таблицы.
+    <span id="ajax-progress-indicator">Идет сохранение...</span>
 </div>
 
 <p id="journal-nav" class="text-center">
-  <a href="?month={{ prev_month }}"
-     title="Предыдующий месяц">&larr;</a>
-  <!-- TODO: translate month name -->
-  <strong>{{ month_verbose }} {{ year }}</strong>
-  <a href="?month={{ next_month }}"
-     title="Следующий месяц">&rarr;</a>
+    <a href="?month={{ prev_month }}" title="Предыдующий месяц">&larr;</a>
+    <!-- TODO: translate month name -->
+    <strong>{{ month_verbose }} {{ year }}</strong>
+    <a href="?month={{ next_month }}" title="Следующий месяц">&rarr;</a>
 </p>
 
-<table class="table table-hover table-striped table-bordered"
-       id="students-journal">
+<table class="table table-hover table-striped table-bordered" id="students-journal">
 
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Студент</th>
-      {% for day in month_header %}
-      <th class="day-header">
-        <!-- TODO: translate day name -->
-        {{ day.verbose }}
-        <br />
-        {{ day.day }}
-      </th>
-      {% endfor %}
-    </tr>
-  </thead>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Студент</th>
+            {% for day in month_header %}
+            <th class="day-header">
+                <!-- TODO: translate day name -->
+                {{ day.verbose }}
+                <br /> {{ day.day }}
+            </th>
+            {% endfor %}
+        </tr>
+    </thead>
 
-  <tbody>
+    <tbody>
 
-    {% csrf_token %}
-
-    {% for student in students %}
+    {% csrf_token %} {% for student in students %}
     <tr>
 
-      <td>
-        {% if is_paginated %}
-          {{ page_obj.start_index|add:forloop.counter0 }}
-        {% else %}
-          {{ forloop.counter }}
-        {% endif %}
-      </td>
+        <td>
+            {% if is_paginated %} {{ page_obj.start_index|add:forloop.counter0 }} {% else %} {{ forloop.counter }} {% endif %}
+        </td>
+        <td>
+            <a title="Редактировать" target="_blank" href="{% url 'students_edit' student.id %}">
+                {{ student.fullname }}
+            </a>
+        </td>
 
-      <td>
-        <a title="Редактировать" target="_blank"
-           href="{% url 'students_edit' student.id %}">
-          {{ student.fullname }}
-        </a>
-      </td>
-
-      {% for day in student.days %}
-      <td class="day-box">
-        <input type="checkbox" data-student-id="{{ student.id }}"
-               data-date="{{ day.date }}" data-url="{{ student.update_url }}"
-               value="1"{% if day.present %} checked="checked" {% endif %} />
-      </td>
-      {% endfor %}
+        {% for day in student.days %}
+        <td class="day-box">
+            <input type="checkbox" data-student-id="{{ student.id }}" data-date="{{ day.date }}" data-url="{{ student.update_url }}" value="1" {% if day.present %} checked="checked" {% endif %} />
+        </td>
+        {% endfor %}
 
     </tr>
     {% endfor %}
 
-  </tbody>
+    </tbody>
 </table>
 
-{% endif %}
+{% endif %} 
 
-{% with object_list=students %}
-  {% include "students/pagination.html" %}
-{% endwith %}
+{% with object_list=students %} 
+
+{% include "students/pagination.html" %} 
+
+{% endwith %} 
 
 {% endblock content %}
