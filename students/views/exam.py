@@ -58,8 +58,8 @@ class ExamForm(ModelForm):
         # set form field properties
         self.helper.help_text_inline = True
         self.helper.html5_required = True
-        self.helper.label_class = 'col-lg-2 control-label'
-        self.helper.field_class = 'col-lg-10'
+        self.helper.label_class = 'col-sm-2 control-label'
+        self.helper.field_class = 'col-sm-8'
 
         # add buttons
         if add_form:

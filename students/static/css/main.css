@@ -43,9 +43,8 @@ h6 {
 /* Form Styles */
 
 textarea,
-select,
-input {
-    max-width: 300px;
+select {
+    max-width: 500px;
 }
 
 

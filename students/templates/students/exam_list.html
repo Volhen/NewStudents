@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<a class="btn btn-primary" href="{% url 'exam_add' %}">Добавить экзамен</a>
+<a class="btn btn-primary" href="{% url 'exam_add' %} " id="add_btn">Добавить экзамен</a>
 <!-- Start Exam Listing -->
 {% if exam %}
 <table class="table">
@@ -29,17 +29,17 @@
         {% for ex in exam %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td><a href="#">{{ex.object_name}}</a></td>
-            <td><a href="#">{{ex.date_time}}</td></a></td>
-            <td><a href="#">{{ex.professor_name}}</a></td>
-            <td><a href="#">{{ex.groups_name}}</a></td>
+            <td><a href="{% url 'exam_edit' ex.id %}" class='edit-form-link'>{{ex.object_name}}</a></td>
+            <td><a href="{% url 'exam_edit' ex.id %}" class='edit-form-link'>{{ex.date_time}}</td></a></td>
+            <td><a href="{% url 'exam_edit' ex.id %}" class='edit-form-link'>{{ex.professor_name}}</a></td>
+            <td><a href="{% url 'exam_edit' ex.id %}" class='edit-form-link'>{{ex.groups_name}}</a></td>
             <td>
                 <div class="btn-group">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Действие
                     <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{% url 'exam_edit' ex.id %}">Редактировать</a></li>
+                        <li><a href="{% url 'exam_edit' ex.id %}" class='edit-form-link'>Редактировать</a></li>
                         <li><a href="{% url 'exam_delete' ex.id %}">Удалить</a></li>
                     </ul>
                 </div>

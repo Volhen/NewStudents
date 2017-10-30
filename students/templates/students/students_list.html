@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<a href="{% url 'students_add' %}" class="btn btn-primary">Добавить студента</a>
+<a href="{% url 'students_add' %}" class="btn btn-primary" id="add_btn">Добавить студента</a>
 
 <!-- Start Students Listing -->
 <table class="table">
@@ -62,8 +62,8 @@
                height="30" width="30" />
         {% endif %}
       </td>
-      <td><a href="{% url 'students_edit' student.id %}" class="student-edit-form-link">{{ student.last_name }}</td>
-      <td><a href="{% url 'students_edit' student.id %}" class="student-edit-form-link">{{ student.first_name }}</td>
+      <td><a href="{% url 'students_edit' student.id %}" class="edit-form-link">{{ student.last_name }}</td>
+      <td><a href="{% url 'students_edit' student.id %}" class="edit-form-link">{{ student.first_name }}</td>
       <td>{{ student.ticket }}</td>
       <td>
         <div class="btn-group">
@@ -72,7 +72,7 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="{% url 'students_edit' student.id %}" class="student-edit-form-link">Редактировать</a></li>
+            <li><a href="{% url 'students_edit' student.id %}" class="edit-form-link">Редактировать</a></li>
             <li><a href="{% url 'journal' student.id %}">Посещение</a></li>
             <li><a href="{% url 'students_delete' student.id %}">Удалить</a></li>
           </ul>

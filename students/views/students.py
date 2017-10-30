@@ -11,8 +11,8 @@ from django.forms import ModelForm
 from django.views.generic import UpdateView, CreateView, DeleteView
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit,Layout
-from crispy_forms.bootstrap import FormActions
+from crispy_forms.layout import Submit,Layout,Div,Field
+from crispy_forms.bootstrap import FormActions,FieldWithButtons,StrictButton,AppendedText
 
 from ..models import Student, Group
 from ..util import paginate, get_current_group
@@ -164,7 +164,7 @@ class StudentForm(ModelForm):
         self.helper.help_text_inline = True
         self.helper.html5_required = True
         self.helper.label_class = 'col-sm-2 control-label'
-        self.helper.field_class = 'col-sm-10'
+        self.helper.field_class = 'col-sm-8'
 
         # add buttons
         if add_form:
@@ -177,7 +177,8 @@ class StudentForm(ModelForm):
             'first_name',
             'last_name',
             'middle_name',
-            'birthday',
+            #Submit('dat','',css_class="glyphicon glyphicon-calendar"),
+            FieldWithButtons('birthday',StrictButton('',css_class="glyphicon glyphicon-calendar")),
             'photo',
             'ticket',
             'student_group',
@@ -201,12 +202,12 @@ class BaseStudentsFormView(object):
 
 class StudentsAddView(BaseStudentsFormView,CreateView):
     model =Student
-    template_name = 'students/students_form.html'
+    template_name = 'students/students_add.html'
     form_class = StudentForm
 
 class StudentUpdateView(BaseStudentsFormView,UpdateView):
     model = Student
-    template_name = 'students/students_form.html'
+    template_name = 'students/students_edit.html'
     form_class = StudentForm
 
 class StudentDeleteView(BaseStudentsFormView,DeleteView):

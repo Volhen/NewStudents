@@ -6,7 +6,7 @@
 
 
 {% block content %}
-<a href="{% url "groups_add" %}" class="btn btn-primary">Добавить группу</a>
+<a href="{% url "groups_add" %}" class="btn btn-primary" id="add_btn">Добавить группу</a>
 
 <!-- Start Groups Listing -->
 {% if groups %}
@@ -29,8 +29,8 @@
           {{ forloop.counter }}
         {% endif %}
       </td>
-      <td><a href="{% url 'groups_edit' group.id %}">{{ group.title }}</td>
-      <td>{% if group.leader %}<a href="{% url 'students_edit' group.leader.id %}">{{ group.leader.first_name }} {{ group.leader.last_name }}</a>{% else %}Отсутствует{% endif %}</td>
+      <td><a href="{% url 'groups_edit' group.id %}" class='edit-form-link'>{{ group.title }}</td>
+      <td>{% if group.leader %}<a href="{% url 'students_edit' group.leader.id %}" class='edit-form-link'>{{ group.leader.first_name }} {{ group.leader.last_name }}</a>{% else %}Отсутствует{% endif %}</td>
       <td>
         <div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle"
@@ -38,7 +38,7 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="{% url 'groups_edit' group.id %}">Редактировать</a></li>
+            <li><a href="{% url 'groups_edit' group.id %}" class='edit-form-link'>Редактировать</a></li>
             <li><a href="{% url 'groups_delete' group.id %}">Удалить</a></li>
           </ul>
         </div>
