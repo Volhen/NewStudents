@@ -1,4 +1,8 @@
-/*Global Styles*/
+/* Global Styles */
+
+.alert {
+    margin: 10px 0 5px 0;
+}
 
 h1,
 h2,
@@ -10,36 +14,49 @@ h6 {
 }
 
 
-/*Comment for css*/
-
-.alert {
-    /*we will add the distance from the top*/
-    margin-top: 10px;
-}
-
-
-/*find the footer element */
-
-#footer {
-    /*добавляем верхнюю линию между элементами: ширину линии, тип линии, цвет*/
-    border-top: 1px solid #dddddd;
-    /*задаем внутринее расстояние елемента к верхнему краю*/
-    padding-top: 10px;
-}
-
-
-/*Groups Selector*/
+/* Groups Selector */
 
 #group-selector {
     margin-top: 30px;
 }
 
 #group-selector select {
+    width: 80%;
     margin: 0;
-    width: 85%;
     background-color: #ffffff;
     border: 1px solid #cccccc;
-    height: 30 px;
+    height: 30px;
     line-height: 30px;
     color: #555555;
+}
+
+
+/* Footer Styles */
+
+#footer {
+    border-top: 1px solid #dddddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+
+/* Form Styles */
+
+textarea,
+select {
+    max-width: 500px;
+}
+
+
+/* Journal Table Styles */
+
+td.day-box,
+th.day-header {
+    padding: 4px !important;
+    vertical-align: middle !important;
+    text-align: center;
+}
+
+#ajax-progress-indicator {
+    display: none;
 }

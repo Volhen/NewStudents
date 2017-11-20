@@ -5,6 +5,7 @@
 *.mo
 *.egg
 *.sqlite3
+*db.py
 /dist/
 /build/
 
