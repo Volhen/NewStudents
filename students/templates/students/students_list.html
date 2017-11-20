@@ -64,7 +64,7 @@
     <ul class="pagination">
         <li><a href="{% url 'home' %}?page=1">&laquo;</a></li>
         {% for p in students.paginator.page_range %}
-        <li {% if p in students.number %} class="active" {% endif %}>
+        <li {% if students.number == p %} class="active" {% endif %}>
             <a href="{% url 'home' %}?page={{ p }}">{{ p }}</a>
         </li>
         {% endfor %}
