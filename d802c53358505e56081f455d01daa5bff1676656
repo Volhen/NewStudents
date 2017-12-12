@@ -1,0 +1,176 @@
+[33mcommit a0624c2e2206f8656d9772a7709c45bcae434f00[m
+Author: Alexzev <alex@Alezev>
+Date:   Mon Dec 11 15:05:16 2017 +0300
+
+    11.12.2017 new
+
+[33mcommit 0c2e884b6aca7fed81407de3ebd53527cde39f83[m
+Author: Alexzev <alex@Alezev>
+Date:   Mon Dec 11 13:53:09 2017 +0300
+
+    11.12.2017
+
+[33mcommit 054aa15dfddd0fbec62b650ce2d2a95758e731ac[m
+Merge: d802c53 43d7a29
+Author: Alexzev <alex@Alezev>
+Date:   Thu Nov 23 15:38:25 2017 +0300
+
+    Merge branch 'master' of github.com:Volhen/NewStudents
+
+[33mcommit d802c53358505e56081f455d01daa5bff1676656[m
+Author: Alexzev <alex@Alezev>
+Date:   Thu Nov 23 15:38:16 2017 +0300
+
+    23-11-17 (signals)
+
+[33mcommit 43d7a293c10c8eb54657c9c6f0e8c8b290b68d93[m
+Merge: 4f1260d ea8f0fd
+Author: volhen <volhen@gmail.com>
+Date:   Mon Nov 20 22:52:29 2017 +0300
+
+    test 20-11-17
+
+[33mcommit 4f1260d25d8feac8b8985bc6a8da186b56ef437f[m
+Author: volhen <volhen@gmail.com>
+Date:   Mon Nov 20 22:48:47 2017 +0300
+
+    test 20/11/17
+
+[33mcommit ea8f0fde79a29c03ef4584d6b0ac4ca6c7eb7262[m
+Author: Alexzev <alex@Alezev>
+Date:   Mon Oct 30 15:43:58 2017 +0300
+
+    30/10/2017 * next
+
+[33mcommit 0af1f6a3a4b9f6708467dc99f178b6ee327aed35[m
+Author: Alexzev <alex@Alezev>
+Date:   Thu Oct 5 14:22:16 2017 +0300
+
+    05/10/17
+
+[33mcommit 5e4700f690813dc72041920bbd2b87c810822097[m
+Author: Alexzev <alex@Alezev>
+Date:   Mon Oct 2 15:57:43 2017 +0300
+
+    02/10/17 new
+
+[33mcommit 65c8f55d76c133ccb71ee936c32c9895163f0393[m
+Author: Alexzev <alex@Alezev>
+Date:   Mon Oct 2 14:02:10 2017 +0300
+
+    02/10/17 14-00
+
+[33mcommit 66524fb7d71ac1ca41825222a5d7c06d10c03ece[m
+Author: Alexzev <alex@Alezev>
+Date:   Thu Sep 21 15:47:14 2017 +0300
+
+    forms 21.09.2017
+
+[33mcommit 04bc3b4a30955d9389f6ab8fe8267cee54155db0[m
+Author: Alexzev <alex@Alezev>
+Date:   Wed Sep 6 15:00:30 2017 +0300
+
+    Forms 06/09/17
+
+[33mcommit 3a8e4e5081ad0c96c16b311e6c5f562ae658fb43[m
+Author: Alexzev <alex@Alezev>
+Date:   Wed Sep 6 14:57:20 2017 +0300
+
+    Forms
+
+[33mcommit 8b1fbcb40e94e8956300985cb742ee282c1399db[m
+Author: Alexzev <alex@Alezev>
+Date:   Thu Aug 31 14:12:58 2017 +0300
+
+    31.08.17-14:10
+
+[33mcommit fc1af8126ac7181e850d9a10d44929a254a681a5[m
+Author: Alexzev <alex@Alezev>
+Date:   Tue Aug 22 14:25:21 2017 +0300
+
+    Contact v 1.0
+
+[33mcommit 12c6a332ef751603a09dc512f3974fca50bae0c2[m
+Author: Alexzev <alex@Alezev>
+Date:   Thu Aug 17 14:29:19 2017 +0300
+
+    17.08.17 - add final
+
+[33mcommit 2809eb9e1d9fcb909789c1dd726493f06ed2a22b[m
+Author: Alexzev <alex@Alezev>
+Date:   Wed Aug 16 13:07:40 2017 +0300
+
+    16.08.2017 - 13:10
+
+[33mcommit 4e73f800f5f30662038f2f27d91bafe39ad43bce[m
+Merge: 8f08fd5 cf59fc5
+Author: Alexzev <alex@Alezev>
+Date:   Mon Jul 31 13:19:42 2017 +0300
+
+    Merge branch 'master' of github.com:Volhen/NewStudents
+
+[33mcommit 8f08fd5bae7e0b13fadf703ec148a4e0de079a21[m
+Author: Alexzev <alex@Alezev>
+Date:   Mon Jul 31 13:19:30 2017 +0300
+
+    31.07.17-13:19
+
+[33mcommit cf59fc553bb1d6de21e0ad1f15779cc803470adb[m
+Author: Alexzev <alex@Alezev>
+Date:   Fri Jul 21 10:58:40 2017 +0300
+
+    21.07.17-10:58
+
+[33mcommit b8b7124047cc770204c2d260f2763e2f7df520c3[m
+Author: Alexzev <alex@Alezev>
+Date:   Thu Jul 20 10:21:14 2017 +0300
+
+    20.07.17-10:20
+
+[33mcommit 246831decb26ec8a9e1580839d77588ada9bab8a[m
+Author: Alexzev <alex@Alezev>
+Date:   Thu Jul 13 11:23:31 2017 +0300
+
+    remove db.py
+
+[33mcommit 3149f5f30a514697fbe215313bc318835747c14e[m
+Author: Alexzev <alex@Alezev>
+Date:   Thu Jul 13 10:25:59 2017 +0300
+
+    13/07/2017-10:25
+
+[33mcommit 5488f4cce2d33cd2b310ba0d769b7720bbf47054[m
+Author: Alexzev <alex@Alezev>
+Date:   Thu Jul 6 15:14:30 2017 +0300
+
+    viva
+
+[33mcommit 7522e5dd75291387fe336f24a92bf67dbb2ab196[m
+Author: Alexzev <alex@Alezev>
+Date:   Fri Jun 30 14:29:04 2017 +0300
+
+    30.06.17-14:28
+
+[33mcommit 5fa3f83269ebb005bc3d1cb62b8e5954a7802b9e[m
+Author: Alexzev <alex@Alezev>
+Date:   Fri Jun 16 15:22:18 2017 +0300
+
+    16/06/2017-15:20 (Not page active)
+
+[33mcommit 5ede1b642811ef97f994b4837c7c5421442935cc[m
+Author: Alexzev <alex@Alezev>
+Date:   Thu Jun 15 13:51:06 2017 +0300
+
+    15/06/2017-14:00
+
+[33mcommit ede5135852ae097723a966ab3b6f3fb4a822bf5f[m
+Author: Alexzev <alex@Alezev>
+Date:   Wed Jun 14 13:36:59 2017 +0300
+
+    555
+
+[33mcommit 6b9bbedfe0eb80417dac3f6f914145812e669c22[m
+Author: Alexzev <alex@Alezev>
+Date:   Wed Jun 14 13:34:10 2017 +0300
+
+    14/06/2017-13:40

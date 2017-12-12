@@ -14,8 +14,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 PORTAL_URL = 'http://localhost:8000'
-<<<<<<< HEAD
-=======
 
 # email settings
 ADMIN_EMAIL = 'zver2485@mail.ru'
@@ -26,7 +24,6 @@ EMAIL_HOST_PASSWORD = 'vhf995jy'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
->>>>>>> ea8f0fde79a29c03ef4584d6b0ac4ca6c7eb7262
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -84,11 +81,7 @@ from .db import DATABASES
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-<<<<<<< HEAD
-LANGUAGE_CODE = 'uk'
-=======
 LANGUAGE_CODE = 'ru'
->>>>>>> ea8f0fde79a29c03ef4584d6b0ac4ca6c7eb7262
 
 TIME_ZONE = 'UTC'
  
@@ -103,16 +96,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
-
-TEMPLATE_CONTEXT_PROCESSORS = \
-    global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-    "django.core.context_processors.request",
-    "studentsdb.context_processors.students_proc",
-)
-
-=======
->>>>>>> ea8f0fde79a29c03ef4584d6b0ac4ca6c7eb7262
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 

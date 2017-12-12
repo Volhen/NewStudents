@@ -1,8 +1,7 @@
 function initJournal() {
     var indicator = $('#ajax-progress-indicator');
 
-    $('.day-box input[type = "checkbox"]').click(function(event) {
-        /*alert('test');*/
+    $('.day-box input[type="checkbox"]').click(function(event) {
         var box = $(this);
         $.ajax(box.data('url'), {
             'type': 'POST',
@@ -34,6 +33,7 @@ function initGroupSelector() {
     $('#group-selector select').change(function(event) {
         // get value of currently selected group option
         var group = $(this).val();
+
         if (group) {
             // set cookie with expiration date 1 year since now;
             // cookie creation function takes period in days
@@ -42,8 +42,10 @@ function initGroupSelector() {
             // otherwise we delete the cookie
             $.removeCookie('current_group', { 'path': '/' });
         }
+
         // and reload a page
         location.reload(true);
+
         return true;
     });
 }
@@ -52,13 +54,13 @@ moment.locale('ru');
 
 function initDateFields() {
     $('input.dateinput').datetimepicker({
-        format: 'MM-DD-YYYY'
+        'format': 'YYYY-MM-DD'
     }).on('dp.hide', function(event) {
         $(this).blur();
     });
 }
-/*, input.datetimeinput*/
-function initModal() {
+
+function initEditStudentPage() {
     $('a.edit-form-link,a#add_btn.btn-primary').click(function(event) {
         var link = $(this);
         $.ajax({
@@ -68,7 +70,7 @@ function initModal() {
             'success': function(data, status, xhr) {
                 // check if we got successfull response from the server
                 if (status != 'success') {
-                    alert('Ошибка на сервере. Попробуйте позже .');
+                    alert('Ошибка на сервере. Попробуйте пожалуйста позже');
                     return false;
                 }
 
@@ -80,7 +82,7 @@ function initModal() {
                 modal.find('.modal-body').html(form);
 
                 // init our edit form
-                initForm(form, modal);
+                initEditStudentForm(form, modal);
 
                 // setup and show modal window finally
                 modal.modal({
@@ -90,7 +92,7 @@ function initModal() {
                 });
             },
             'error': function() {
-                alert('Ошибка на сервере. Попробуйте позже ');
+                alert('Ошибка на сервере. Попробуйте пожалуйста позже.');
                 return false
             }
         });
@@ -99,28 +101,26 @@ function initModal() {
     });
 }
 
-function initForm(form, modal) {
+function initEditStudentForm(form, modal) {
     // attach datepicker
     initDateFields();
-
-    var complete = true;
 
     // close modal window on Cancel button click
     form.find('input[name="cancel_button"]').click(function(event) {
         modal.modal('hide');
         return false;
     });
-    // modal window on Cancel button click
-    form.find('input[name="save_button"]').click(function(event) {
-        modal.modal('hide');
-    });
+    // modal window on Save button click
+    //form.find('input[name="save_button"]').click(function(event) {
+    //    modal.modal('hide');
+    //return false;
+    //});
 
     // make form work in AJAX mode
-    //if (complect) {
     form.ajaxForm({
         'dataType': 'html',
         'error': function() {
-            alert('Ошибка на серве. Попробуйте позже');
+            alert('Ошибка на сервере. Попробуйте пожалуйста позже.');
             return false;
         },
         'success': function(data, status, xhr) {
@@ -135,23 +135,24 @@ function initForm(form, modal) {
                 modal.find('.modal-body').append(newform);
 
                 // initialize form fields and buttons
-                initForm(newform, modal);
+                initEditStudentForm(newform, modal);
             } else {
                 // if no form, it means success and we need to reload page
                 // to get updated students list;
                 // reload after 2 seconds, so that user can read success message
-                //setTimeout(function() { location.reload(true); }, 500);
-                location.reload(true);
+                setTimeout(function() { location.reload(true); }, 500);
+                //status: '555',
+                //location.reload(true);
+                //return false;
             }
         }
     });
-    //complete = false;
 }
-//}
+
 
 $(document).ready(function() {
     initJournal();
     initGroupSelector();
-    //initDateFields();
-    initModal();
+    initDateFields();
+    initEditStudentPage();
 });

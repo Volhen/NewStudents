@@ -13,11 +13,6 @@ from .settings import MEDIA_ROOT, DEBUG
 urlpatterns = patterns('',
     # Students urls
     url(r'^$', 'students.views.students.students_list', name='home'),
-<<<<<<< HEAD
-    url(r'^students/add/$', 'students.views.students.students_add',name='students_add'),
-    url(r'^students/(?P<sid>\d+)/edit/$','students.views.students.students_edit',name='students_edit'),
-    url(r'^students/(?P<sid>\d+)/delete/$','students.views.students.students_delete',name='students_delete'),
-=======
     url(r'^students/add/$',
         StudentsAddView.as_view(),
         name='students_add'),
@@ -27,7 +22,6 @@ urlpatterns = patterns('',
     url(r'^students/(?P<pk>\d+)/delete/$',
         StudentDeleteView.as_view(),
         name='students_delete'),
->>>>>>> ea8f0fde79a29c03ef4584d6b0ac4ca6c7eb7262
 
     # Groups urls
     url(r'^groups/$', 'students.views.groups.groups_list', name='groups'),

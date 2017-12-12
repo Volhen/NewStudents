@@ -29,7 +29,7 @@ class ContactForm(forms.Form):
         self.helper.help_text_inline = True
         self.helper.html5_required = True
         self.helper.label_class = 'col-sm-2 control-label'
-        self.helper.field_class = 'col-sm-10'
+        self.helper.field_class = 'col-sm-4'
 
         # form buttons
         self.helper.add_input(Submit('send_button', u'Отправить'))
